@@ -14,7 +14,7 @@ export default class NotesList extends Component {
     }
 
     async getNotes() {
-        const res = await axios.get('~/:4000/api/notes')
+        const res = await axios.get('http://localhost:4000/api/notes')
         this.setState({ notes: res.data })
     }
 
