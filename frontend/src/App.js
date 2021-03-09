@@ -8,7 +8,6 @@ import NotesList from './components/NotesList'
 import CreateNote from './components/CreateNote'
 import CreateUser from './components/CreateUser'
 
-
 function App() {
   return (
     <Router>

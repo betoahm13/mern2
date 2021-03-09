@@ -3,6 +3,8 @@ import axios from 'axios'
 import { format } from 'timeago.js'
 import { Link } from 'react-router-dom'
 
+import {urlDin} from '../vGlobales'
+
 export default class NotesList extends Component {
 
     state = {
@@ -14,12 +16,12 @@ export default class NotesList extends Component {
     }
 
     async getNotes() {
-        const res = await axios.get('http://localhost:4000/api/notes')
+        const res = await axios.get(urlDin + '/api/notes')
         this.setState({ notes: res.data })
     }
 
     deleteNote = (id) => {
-        axios.delete('http://localhost:4000/api/notes/' + id);
+        axios.delete(urlDin + '/api/notes/' + id);
         this.getNotes();
     }
 

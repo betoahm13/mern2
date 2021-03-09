@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 
+import {urlDin} from '../vGlobales'
+
 export default class CreateUser extends Component {
 
     state = {
@@ -14,7 +16,7 @@ export default class CreateUser extends Component {
     }
 
     getUsers = async () => {
-        const res = await axios.get('http://localhost:4000/api/users');
+        const res = await axios.get(urlDin+'/api/users');
         this.setState({ users: res.data });
     }
 
@@ -26,7 +28,7 @@ export default class CreateUser extends Component {
 
     onSubmit = async e => {
         e.preventDefault();
-        await axios.post('http://localhost:4000/api/users', {
+        await axios.post(urlDin+'/api/users', {
             username: this.state.username
         })
         this.setState({ username: '' })
@@ -34,7 +36,7 @@ export default class CreateUser extends Component {
     }
 
     deleteUser = (id) => {
-        axios.delete('http://localhost:4000/api/users/' + id);
+        axios.delete(urlDin+'/api/users/' + id);
         this.getUsers();
     }
 
